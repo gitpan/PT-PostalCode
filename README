@@ -1,9 +1,9 @@
-PT/PostalCode version 0.02
+PT/PostalCode version 0.03
 ==========================
 
-Validates Portuguese Postal Codes (that's the four digit code; in
-order to validate the seven digit codes of the form xxxx-xxx we would
-need a huge list of codes that would probably change every day).
+PT::PostalCode - Validates Portuguese postal codes
+
+=head1 SYNOPSIS
 
   use PT::PostalCode;
 
@@ -20,7 +20,47 @@ need a huge list of codes that would probably change every day).
   areas_of_code($code);
   subareas_of_code($code);
 
-PORTUGUESE POSTAL CODES
+=head1 METHODS
+
+=head2 code_is_from_area
+
+Given a postal code and an area, returns true if that code exists in that area.
+
+=head2 code_is_from_subarea
+
+Given a postal code and a subarea, returns true if that code exists in that
+subarea.
+
+=head2 code_is_from
+
+Given a code, a subarea and an area, returns true if that code exists in that
+subarea of that area.
+
+=head2 range_from_subarea
+
+Given a subarea, returns a list with the ranges (minimum and maximum
+values) of codes that subarea comprises. The return value is something
+like [ (4900, 4935) ].
+
+=head2 code_is_valid
+
+Given a code, returns true if that code is valid.
+
+=head2 areas_of_code
+
+Given a code, returns a list of areas where that code is allowed.
+
+=head2 subareas_of_code
+
+Given a code, returns a list of subareas allowing that code.
+
+=head1 DESCRIPTION
+
+Validates Portuguese Postal Codes (that's the four digit code; in
+order to validate the seven digit codes of the form xxxx-xxx we would
+need a huge list of codes that would probably change every day).
+
+=head1 PORTUGUESE POSTAL CODES
 
 Regarding postal codes, Portugal is divided into areas and then into
 subareas. This division does not correspond to the most expected one
@@ -49,27 +89,15 @@ does not mean it doesn't also belong to other(s) area(s)/subarea(s).
 not mean it is an existing code (that would need a huge list of codes,
 which is always subject to alterations).
 
-INSTALLATION
+=head1 AUTHOR
 
-To install this module type the following:
+Jose Castro, C<< <cog@cpan.org> >>
 
-   perl Makefile.PL
-   make
-   make test
-   make install
+=head1 COPYRIGHT & LICENSE
 
-SEE ALSO
+Copyright 2004 Jose Castro, All Rights Reserved.
 
-The POD documentation in PostalCode.pm
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
 
-DEPENDENCIES
-
-No dependencies
-
-COPYRIGHT AND LICENCE
-
-Copyright (C) 2004 Jose Alves de Castro
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself. 
-
+=cut

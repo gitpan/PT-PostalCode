@@ -22,11 +22,11 @@ our @EXPORT = qw(
         code_is_valid areas_of_code subareas_of_code
 );
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 NAME
 
-PT::PostalCode - Validates Portuguese Postal Codes
+PT::PostalCode - Validates Portuguese postal codes
 
 =head1 SYNOPSIS
 
@@ -29642,6 +29642,14 @@ BEGIN {
 
 }
 
+=head1 METHODS
+
+=head2 code_is_from_area
+
+Given a postal code and an area, returns true if that code exists in that area.
+
+=cut
+
 sub code_is_from_area {
   my $code = shift || return undef;
   my $area = shift || return undef;
@@ -29655,6 +29663,13 @@ sub code_is_from_area {
 
   return 0;
 }
+
+=head2 code_is_from_subarea
+
+Given a postal code and a subarea, returns true if that code exists in that
+subarea.
+
+=cut
 
 sub code_is_from_subarea {
   my $code = shift || return undef;
@@ -29674,6 +29689,13 @@ sub code_is_from_subarea {
   return undef;
 }
 
+=head2 code_is_from
+
+Given a code, a subarea and an area, returns true if that code exists in that
+subarea of that area.
+
+=cut
+
 sub code_is_from {
   my $code = shift || return undef;
   my $subarea = shift || return undef;
@@ -29690,6 +29712,14 @@ sub code_is_from {
   }
 }
 
+=head2 range_from_subarea
+
+Given a subarea, returns a list with the ranges (minimum and maximum
+values) of codes that subarea comprises. The return value is something
+like [ (4900, 4935) ].
+
+=cut
+
 sub range_from_subarea {
   my $subarea = shift || return undef;
 
@@ -29700,6 +29730,12 @@ sub range_from_subarea {
 
   return undef;
 }
+
+=head2 code_is_valid
+
+Given a code, returns true if that code is valid.
+
+=cut
 
 sub code_is_valid {
   my $code = shift || return undef;
@@ -29714,6 +29750,12 @@ sub code_is_valid {
 
   return 0;
 }
+
+=head2 areas_of_code
+
+Given a code, returns a list of areas where that code is allowed.
+
+=cut
 
 sub areas_of_code {
   my $code = shift || return undef;
@@ -29730,6 +29772,12 @@ sub areas_of_code {
 
   return @areas;
 }
+
+=head2 subareas_of_code
+
+Given a code, returns a list of subareas allowing that code.
+
+=cut
 
 sub subareas_of_code {
   my $code = shift || return undef;
@@ -29787,13 +29835,13 @@ which is always subject to alterations).
 
 =head1 AUTHOR
 
-Jose Alves de Castro, E<lt>cog [at] cpan [dot] org<gt>
+Jose Castro, C<< <cog@cpan.org> >>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT & LICENSE
 
-Copyright 2004 by Jose Alves de Castro
+Copyright 2004 Jose Castro, All Rights Reserved.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
 
 =cut
