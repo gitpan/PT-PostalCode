@@ -1,4 +1,4 @@
-PT/PostalCode version 0.01
+PT/PostalCode version 0.02
 ==========================
 
 Validates Portuguese Postal Codes (that's the four digit code; in
@@ -20,7 +20,7 @@ need a huge list of codes that would probably change every day).
   areas_of_code($code);
   subareas_of_code($code);
 
-=head1 PORTUGUESE POSTAL CODES
+PORTUGUESE POSTAL CODES
 
 Regarding postal codes, Portugal is divided into areas and then into
 subareas. This division does not correspond to the most expected one

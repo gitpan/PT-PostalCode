@@ -1,5 +1,10 @@
 Revision history for Perl extension PT::PostalCode.
 
+0.02  Sep Thu 30 23:20:31 2004
+	- Perl required version is now 5.006 (was 5.008)
+	- minor changes in the documentation
+	- added META.yml
+
 0.01  Thu May 15 20:34:31 2004
 	- first release ready
 
